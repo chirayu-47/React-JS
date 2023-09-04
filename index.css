@@ -1,5 +1,5 @@
 .app {
-    margin: 20px;
+    margin: 0px 20px 0px 20px;
 }
 
 .header {
@@ -8,6 +8,7 @@
     border: 1px solid black;
     padding: 0px 20px 0px 20px;
 }
+
 
 .logo {
     width: 100px;
