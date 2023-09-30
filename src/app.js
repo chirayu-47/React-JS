@@ -7,13 +7,25 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { useState, useEffect } from "react";
+import UserContext from "./utils/UserContext";
 
 const AppLayout = () => {
+  const [userInfo, setUserInfo] = useState();
+  useEffect(() => {
+    const data = {
+      name: "Chirayu Khandelwal",
+    };
+    setUserInfo(data.name);
+  }, []);
+
   return (
-    <div className="app">
-      <Header />
-      <Outlet />
-    </div>
+    <UserContext.Provider value={{ loggedInUser: userInfo, setUserInfo }}>
+      <div className="app">
+        <Header />
+        <Outlet />
+      </div>
+    </UserContext.Provider>
   );
 };
 
